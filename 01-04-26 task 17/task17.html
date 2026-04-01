@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boat Crew Adventure</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        #boat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #crew {
+            list-style: none;
+            padding: 0;
+        }
+
+        #crew li {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff9800;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff5722;
+            transform: scale(1.1);
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .show {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="boat">
+        <h1> Boat Crew</h1>
+
+        <ul id="crew">
+            <li><button onclick="jackRoute()">Jack Sparrow</button></li>
+            <li><button onclick="aliceRoute()"> Alice</button></li>
+            <li> Bob</li>
+            <li> Charlie</li>
+        </ul>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function showMessage(msg) {
+            let output = document.getElementById("output");
+            output.innerText = msg;
+            output.classList.add("show");
+        }
+
+        function jackRoute() {
+            showMessage(" Jack: Take the secret pirate route across the storm!");
+        }
+
+        function aliceRoute() {
+            showMessage(" Alice: Follow the lighthouse and stay safe!");
+        }
+    </script>
+
+</body>
+</html>
