@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Methods Demo</title>
+</head>
+<body>
+
+<h2>Array Operations</h2>
+<button onclick="runArray()">Run Array Code</button>
+
+<script>
+
+function runArray() {
+
+    // Create an array
+    let numbers = [1, 2, 3];
+
+    console.log("Original Array:", numbers);
+
+    // push → add element at end
+    numbers.push(4);
+    console.log("After push:", numbers);
+
+    // pop → remove last element
+    numbers.pop();
+    console.log("After pop:", numbers);
+
+    // unshift → add element at beginning
+    numbers.unshift(0);
+    console.log("After unshift:", numbers);
+
+    // shift → remove first element
+    numbers.shift();
+    console.log("After shift:", numbers);
+
+    // Print using for loop
+    console.log("Printing Array Elements:");
+    for (let i = 0; i < numbers.length; i++) {
+        console.log(numbers[i]);
+    }
+}
+
+</script>
+
+</body>
+</html>
