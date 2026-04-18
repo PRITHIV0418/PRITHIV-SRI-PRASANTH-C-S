@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Handling UI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 5px rgba(79,172,254,0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #4facfe;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #007bff;
+    }
+
+    #displayText {
+      margin-top: 15px;
+      color: #555;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Event Handling</h2>
+
+    <input type="text" id="nameInput" placeholder="Type something..." />
+
+    <button id="myButton">Click Me</button>
+
+    <p id="displayText"></p>
+  </div>
+
+  <script>
+    const input = document.getElementById("nameInput");
+    const display = document.getElementById("displayText");
+    const button = document.getElementById("myButton");
+
+    // Show input value while typing
+    input.addEventListener("input", () => {
+      display.textContent = input.value 
+        ? "You typed: " + input.value 
+        : "";
+    });
+
+    // Button click event
+    button.addEventListener("click", () => {
+      if (input.value.trim() === "") {
+        alert("Please enter something!");
+      } else {
+        alert("Submitted: " + input.value);
+      }
+    });
+  </script>
+
+</body>
+</html>
