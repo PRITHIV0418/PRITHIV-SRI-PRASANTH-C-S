@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern JS Example</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    #displayText {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Modern JS</h2>
+
+    <input type="text" id="nameInput" placeholder="Enter text..." />
+    <button id="myButton">Submit</button>
+
+    <p id="displayText"></p>
+  </div>
+
+  <script>
+    // Using const (reference won't change)
+    const input = document.getElementById("nameInput");
+    const button = document.getElementById("myButton");
+    const display = document.getElementById("displayText");
+
+    // Function with default parameter
+    function showMessage(name = "Guest") {
+      return `Hello, ${name}!`; // template literal
+    }
+
+    // Input typing event
+    input.addEventListener("input", () => {
+      let value = input.value; // using let (value can change)
+
+      display.textContent = value 
+        ? `You typed: ${value}`   // template literal
+        : "";
+    });
+
+    // Button click event
+    button.addEventListener("click", () => {
+      let value = input.value.trim();
+
+      if (value === "") {
+        alert(showMessage()); // default parameter used
+      } else {
+        alert(showMessage(value));
+      }
+    });
+  </script>
+
+</body>
+</html>
