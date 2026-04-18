@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Movies Cards</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #111;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card h4 {
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Movie Collection 🎬</h2>
+    <div class="container" id="movieContainer"></div>
+
+    <script>
+        const movies = [
+            {
+                name: "Leo",
+                image: "https://upload.wikimedia.org/wikipedia/en/7/7f/Leo_%282023_Indian_film%29.jpg"
+            },
+            {
+                name: "Jailer",
+                image: "https://upload.wikimedia.org/wikipedia/en/8/8c/Jailer_film_poster.jpg"
+            },
+            {
+                name: "Vikram",
+                image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Vikram_2022_poster.jpg"
+            },
+            {
+                name: "Master",
+                image: "https://upload.wikimedia.org/wikipedia/en/5/53/Master_2021_poster.jpg"
+            },
+            {
+                name: "Beast",
+                image: "https://upload.wikimedia.org/wikipedia/en/3/3f/Beast_2022_film_poster.jpg"
+            },
+            {
+                name: "RRR",
+                image: "https://upload.wikimedia.org/wikipedia/en/d/d7/RRR_Poster.jpg"
+            },
+            {
+                name: "KGF Chapter 2",
+                image: "https://upload.wikimedia.org/wikipedia/en/d/dc/KGF_Chapter_2.jpg"
+            },
+            {
+                name: "Pushpa",
+                image: "https://upload.wikimedia.org/wikipedia/en/5/5e/Pushpa_-_The_Rise.jpg"
+            },
+            {
+                name: "Avengers Endgame",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            },
+            {
+                name: "Spider-Man No Way Home",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg"
+            }
+        ];
+
+        const container = document.getElementById("movieContainer");
+
+        function displayMovies(movieList = []) {
+            container.innerHTML = movieList.map(movie => `
+      <div class="card">
+        <img src="${movie.image}" alt="${movie.name}"
+        onerror="this.src='https://via.placeholder.com/200x300?text=No+Image'">
+        <h4>${movie.name}</h4>
+      </div>
+    `).join("");
+        }
+
+        displayMovies(movies);
+    </script>
+
+</body>
+
+</html>

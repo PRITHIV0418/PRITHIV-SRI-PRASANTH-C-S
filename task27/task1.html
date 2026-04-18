@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Name Filter</title>
+  <style>
+    body {
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      background: #4197ec;
+    }
+
+    .container {
+      width: 300px;
+      background: rgb(69, 102, 222);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #e6d00e;
+    }
+
+    li {
+      list-style: none;
+      padding: 8px;
+      border-bottom: 1px solid #e24c4c;
+    }
+
+    li.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h3>Search Names</h3>
+  <input type="text" id="searchBox" placeholder="Type a name..." />
+  <ul id="nameList"></ul>
+</div>
+
+<script>
+  const names = ["Prithiv", "Arun", "Kumar", "Vijay", "Ajith", "Surya"];
+  const searchBox = document.getElementById("searchBox");
+  const list = document.getElementById("nameList");
+
+  // Render list
+  function renderList(items = []) {
+    list.innerHTML = items.map(name => `<li>${name}</li>`).join("");
+  }
+
+  renderList(names);
+
+  // Filter on typing
+  searchBox.addEventListener("input", () => {
+    const value = searchBox.value.toLowerCase();
+
+    const filtered = names.filter(name =>
+      name.toLowerCase().includes(value)
+    );
+
+    renderList(filtered);
+  });
+</script>
+
+</body>
+</html>
