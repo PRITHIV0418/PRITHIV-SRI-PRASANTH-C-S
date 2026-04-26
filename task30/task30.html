@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Shopping Cart</title>
+
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+.cart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.products {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: darkgreen;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Online Shop</h1>
+
+<div class="cart">
+    Cart Count: <span id="cartCount">0</span>
+</div>
+
+<div class="products" id="productList"></div>
+
+<script>
+// Product Data
+const products = [
+    { id: 1, name: "Laptop", price: 50000 },
+    { id: 2, name: "Mobile", price: 20000 },
+    { id: 3, name: "Headphones", price: 2000 }
+];
+
+let cartCount = 0;
+
+// Display Products
+function displayProducts() {
+    const container = document.getElementById("productList");
+
+    products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>₹${product.price}</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+// Add to Cart
+function addToCart() {
+    cartCount++;
+    document.getElementById("cartCount").innerText = cartCount;
+}
+
+// -------- Callback Function Example --------
+
+// Function that accepts a callback
+function processOrder(callback) {
+    console.log("Processing Order...");
+
+    setTimeout(() => {
+        console.log("Order Processed!");
+        callback(); // calling callback
+    }, 2000);
+}
+
+// Callback function
+function orderSuccess() {
+    console.log("Callback: Order Successful ✅");
+}
+
+// Trigger example
+processOrder(orderSuccess);
+
+// Load products
+displayProducts();
+</script>
+
+</body>
+</html>
